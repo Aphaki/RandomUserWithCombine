@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var vm = ViewModel()
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Form {
+            List(vm.randomUsers) { aRandomUser in
+                UrlImageView(aRandomUser)
+            }
+        }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
